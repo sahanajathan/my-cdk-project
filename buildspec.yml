@@ -9,6 +9,7 @@ phases:
       - npm install -g aws-cdk@2 # Change to v1 if needed
       # Install project dependencies
       - npm install
+      - npm install -g ts-node 
 
   pre_build:
     commands:
