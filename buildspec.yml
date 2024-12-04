@@ -5,19 +5,18 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - npm install -g aws-cdk@2
-      - npm install
-      - npm install -g ts-node  # Install ts-node for direct TypeScript execution
-
+      - npm install -g aws-cdk@2  # Install AWS CDK globally
+      - npm install  # Install local dependencies (including TypeScript)
+      
   pre_build:
     commands:
       - echo "Compiling TypeScript files..."
-      - tsc  # Ensure TypeScript is compiled before running ts-node
+      - npx tsc  # Use npx to run the local TypeScript compiler (tsc)
 
   build:
     commands:
       - echo "Deploying CDK stack..."
-      - node --loader ts-node/esm bin/my-cdk-project.ts  # Use ts-node to execute TypeScript
+      - node bin/my-cdk-project.js  # Run the compiled JavaScript file
 
   post_build:
     commands:
