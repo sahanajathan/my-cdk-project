@@ -1,4 +1,3 @@
-version: 0.2
 phases:
   install:
     commands:
@@ -6,18 +5,20 @@ phases:
       - npm install
   pre_build:
     commands:
-      - echo "Checking directory structure..."
+      - echo "Checking current directory..."
       - pwd
+      - echo "Listing project files..."
       - ls -la
+      - echo "Listing bin directory..."
+      - ls -la bin
       - echo "Listing src directory..."
-      - ls -la src
+      - ls -la src  # This checks if the src directory exists in the build environment
   build:
     commands:
       - echo "Compiling TypeScript..."
       - npm run build
       - echo "Running CDK synth..."
       - npx cdk synth
-
-artifacts:
-  files:
-    - dist/**/*
+  post_build:
+    commands:
+      - echo "Build completed successfully."
