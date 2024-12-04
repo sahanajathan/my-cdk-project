@@ -3,21 +3,21 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18  # Ensure Node.js 18.x or later
+      nodejs: 18
     commands:
-      - npm install -g aws-cdk@2  # Ensure you're using CDK v2
+      - npm install -g aws-cdk@2
       - npm install
-      - npm install -g typescript  # Install TypeScript compiler
+      - npm install -g ts-node  # Install ts-node for direct TypeScript execution
 
   pre_build:
     commands:
       - echo "Compiling TypeScript files..."
-      - tsc  # Compile TypeScript files to JavaScript
+      - tsc  # Ensure TypeScript is compiled before running ts-node
 
   build:
     commands:
-      - echo "Deploying CDK stack"
-      - cdk deploy MyCdkProjectStack --require-approval never  # Ensure the CDK deploy command is here
+      - echo "Deploying CDK stack..."
+      - node --loader ts-node/esm bin/my-cdk-project.ts  # Use ts-node to execute TypeScript
 
   post_build:
     commands:
