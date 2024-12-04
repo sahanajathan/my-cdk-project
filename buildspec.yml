@@ -8,12 +8,9 @@ phases:
 
   pre_build:
     commands:
-      - echo "Checking project directory structure..."
-      - ls -la
-      - echo "Listing bin directory..."
-      - ls -la bin
-      - echo "Listing src directory..."
-      - ls -la src || echo "src directory does not exist. Please create or adjust your configuration."
+      - echo "Checking if the 'src' directory exists..."
+      - ls -la src || (echo "src directory does not exist. Creating 'src' directory..."; mkdir src)
+      - echo "Directory check complete."
 
   build:
     commands:
