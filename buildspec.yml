@@ -7,17 +7,17 @@ phases:
     commands:
       - npm install -g aws-cdk@2  # Ensure you're using CDK v2
       - npm install
-      - npm install -g typescript  # Install TypeScript compiler globally
+      - npm install -g ts-node  # Install ts-node
+      - npm install -g typescript  # Install TypeScript
 
   pre_build:
     commands:
-      - echo "Compiling TypeScript files..."
-      - tsc  # Compile the TypeScript files to JavaScript
+      - echo "Preparing to deploy CDK stack"
 
   build:
     commands:
       - echo "Deploying CDK stack"
-      - node dist/bin/my-cdk-project.js  # Run the compiled JavaScript file from 'dist'
+      - node --loader ts-node/esm bin/my-cdk-project.ts  # Explicitly use ts-node's ESM loader
 
   post_build:
     commands:
