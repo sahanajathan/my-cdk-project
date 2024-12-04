@@ -17,7 +17,9 @@ phases:
   build:
     commands:
       - echo "Deploying CDK stack"
-      - node --loader ts-node/esm bin/my-cdk-project.ts  # Explicitly use ts-node's ESM loader
+      - node --loader ts-node/esm bin/my-cdk-project.ts 
+      - cdk deploy MyCdkProjectStack --require-approval never
+  
 
   post_build:
     commands:
