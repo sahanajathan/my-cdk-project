@@ -1,31 +1,39 @@
-{
-  "version": "0.2",
-  "phases": {
-    "install": {
-      "runtime-versions": {
-        "nodejs": 14
-      },
-      "commands": [
-        "npm install -g aws-cdk@1",
-        "npm install"
-      ]
-    },
-    "pre_build": {},
-    "build": {
-      "commands": [
-        "cdk deploy *my-cdk-project-stack* --require-approval never"
-      ]
-    },
-    "post_build": {}
-  },
-  "artifacts": {
-    "files": [
-      "**/*"
-    ],
-    "exclude-paths": [
-      "cdk.out/",
-      "node_modules/",
-      ".git/"
-    ]
-  }
-}
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      # Install AWS CDK (if you want to use v1, you can leave this as is; v2 is default with latest versions)
+      - echo "Installing AWS CDK"
+      - npm install -g aws-cdk@1 # For CDK v1 (for CDK v2, use "npm install -g aws-cdk")
+      
+      # Install dependencies for your CDK project
+      - echo "Installing project dependencies"
+      - npm install
+
+  pre_build:
+    commands:
+      - echo "Preparing for CDK deploy"
+      # If you need any setup before deploy, add it here. 
+      # For example, you could set environment variables or check the stack.
+
+  build:
+    commands:
+      - echo "Deploying CDK stack"
+      # Deploy your CDK stack (adjust stack name if necessary)
+      - cdk deploy my-cdk-project-stack --require-approval never # Change `my-cdk-project-stack` to your actual stack name
+
+  post_build:
+    commands:
+      - echo "CDK deploy complete"
+      # Optional: Add steps like sending notifications, logging, etc.
+
+artifacts:
+  files:
+    - '**/*' # Include all the necessary files (like the build output)
+  exclude-paths:
+    - 'cdk.out/' # Exclude the CDK output directory
+    - 'node_modules/' # Exclude node_modules to reduce size
+    - '.git/' # Exclude .git directory from artifacts
