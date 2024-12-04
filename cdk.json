@@ -1,8 +1,3 @@
 {
-  "app": "node bin/my-cdk-project.ts",
-  "context": {
-    "@aws-cdk/core:stackName": "MyCdkProjectStack",
-    "@aws-cdk/aws-lambda:runtime": "nodejs18.x",
-    "@aws-cdk/aws-s3:bucketName": "my-unique-bucket-name"
-  }
+  "app": "node bin/my-cdk-project.ts"
 }
