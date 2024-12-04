@@ -5,30 +5,14 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing dependencies..."
-      - npm install -g aws-cdk@2  # Install AWS CDK globally
-      - npm install  # Install local dependencies
-      - npm install -g ts-node typescript  # Install ts-node and TypeScript
-
-  pre_build:
-    commands:
-      - echo "Compiling TypeScript files..."
-      - npx tsc  # Compile TypeScript to JavaScript (if required)
+      - echo Installing dependencies...
+      - npm install  # Install dependencies including ts-node
 
   build:
     commands:
-      - echo "Deploying CDK stack"
-      - node --loader ts-node/esm bin/my-cdk-project.ts 
-      - npx cdk deploy MyCdkProjectStack --require-approval never
+      - echo Running CDK deploy...
+      - npx cdk deploy  # Deploy using CDK
 
   post_build:
     commands:
-      - echo "CDK deploy complete"
-
-artifacts:
-  files:
-    - '**/*'
-  exclude-paths:
-    - 'cdk.out/'
-    - 'node_modules/'
-    - '.git/'
+      - echo CDK deploy complete
