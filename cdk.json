@@ -1,3 +1,9 @@
 {
-  "app": "node bin/my-cdk-project.ts"
+  "app": "node --loader ts-node/esm bin/my-cdk-project.ts",
+  "context": {
+    "@aws-cdk/core:stackName": "MyCdkProjectStack",
+    "@aws-cdk/aws-lambda:runtime": "nodejs18.x",
+    "@aws-cdk/aws-s3:bucketName": "my-unique-bucket-name",
+    "aws:cdk:enableDiffNoFail": "true"
+  }
 }
