@@ -15,8 +15,8 @@ phases:
 
   post_build:
     commands:
-      - echo "CDK build completed. Synthesizing the CloudFormation template..."
-      - npx cdk synth
+      - echo "Synthesizing the CloudFormation template..."
+      - npx cdk synth --verbose
 
 artifacts:
   files:
