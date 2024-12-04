@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "rootDir": ".",  // Set to the project root to include `bin/`, `lib/`, and `src/`
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
   },
   "include": [
     "bin/**/*.ts",  // Include files in bin/ directory
