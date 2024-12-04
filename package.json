@@ -1,18 +1,18 @@
 {
   "name": "my-cdk-project",
   "version": "0.1.0",
-  "type": "module",  // <-- Add this line to enable ES Modules
+  "type": "module",  
   "bin": {
     "my-cdk-project": "bin/my-cdk-project.ts"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.x.x",  // Use CDK v2
-    "constructs": "10.x.x",  // Latest version of constructs
-    "ts-node": "^10.0.0",    // Ensure ts-node is available for runtime
-    "typescript": "^4.4.0"   // TypeScript version
+    "aws-cdk-lib": "2.x.x",
+    "constructs": "10.x.x",  
+    "ts-node": "^10.0.0",    
+    "typescript": "^4.4.0"   
   },
   "devDependencies": {
-    "aws-cdk": "2.x.x"       // CDK toolkit for deploying
+    "aws-cdk": "2.x.x"      
   },
   "scripts": {
     "build": "tsc",
