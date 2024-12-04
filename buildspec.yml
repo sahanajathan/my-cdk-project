@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install -g aws-cdk
+      - npm install
+  build:
+    commands:
+      - echo "Synthesizing CDK template..."
+      - cdk synth
+      - echo "Deploying CDK stack..."
+      - cdk deploy --require-approval never --region <your-region>
+artifacts:
+  files:
+    - '**/*'
