@@ -7,7 +7,10 @@ phases:
     commands:
       - echo Installing dependencies...
       - npm install  # Install dependencies including ts-node
-
+  pre_build:
+    commands:
+      - echo Bootstrapping the environment...
+      - npx cdk bootstrap aws://843835551300/us-east-1
   build:
     commands:
       - echo Running CDK deploy...
