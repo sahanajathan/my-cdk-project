@@ -6,16 +6,18 @@ phases:
       - npm install
   pre_build:
     commands:
-      - echo "Current working directory:"
+      - echo "Checking directory structure..."
       - pwd
       - ls -la
+      - echo "Listing src directory..."
+      - ls -la src
   build:
     commands:
       - echo "Compiling TypeScript..."
       - npm run build
-  post_build:
-    commands:
-      - echo "Build completed successfully."
+      - echo "Running CDK synth..."
+      - npx cdk synth
+
 artifacts:
   files:
     - dist/**/*
