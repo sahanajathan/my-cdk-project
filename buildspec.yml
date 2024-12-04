@@ -18,7 +18,7 @@ phases:
   build:
     commands:
       - echo "Deploying CDK stack"
-      # Deploy your CDK stack (replace with your actual stack name)
+      - ts-node bin/my-cdk-project.ts
       - cdk deploy MyCdkProjectStack --require-approval never
 
   post_build:
