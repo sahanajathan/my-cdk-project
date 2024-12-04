@@ -6,9 +6,14 @@
     "lib": ["es2019"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "dist",
-    "rootDir": "src"
+    "outDir": "dist",          // Output JavaScript files into the dist/ directory
+    "rootDir": ".",            // Set rootDir to the current directory to include both bin/ and lib/
   },
-  "include": ["bin/**/*.ts", "lib/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "bin/**/*.ts",            // Include all TypeScript files under bin/
+    "lib/**/*.ts"             // Include all TypeScript files under lib/
+  ],
+  "exclude": [
+    "node_modules"            // Exclude the node_modules directory
+  ]
 }
