@@ -1,17 +1,24 @@
 version: 0.2
+
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
       - echo "Installing dependencies..."
-      - npm install -g aws-cdk
-      - npm install --verbose
+      - npm install
 
   build:
     commands:
-      - echo "Synthesizing CDK template..."
-      - cdk synth
-      - echo "Deploying CDK stack..."
-      - cdk deploy --require-approval never --region <your-region>
+      - echo "Building the CDK application..."
+      - npm run build
+
+  post_build:
+    commands:
+      - echo "CDK build completed. Synthesizing the CloudFormation template..."
+      - npx cdk synth
+
 artifacts:
   files:
     - '**/*'
+  base-directory: 'cdk.out'
