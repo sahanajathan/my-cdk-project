@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "deploy": "cdk deploy"
+    "deploy": "npx cdk deploy"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.0.0",
