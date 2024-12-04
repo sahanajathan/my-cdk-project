@@ -5,8 +5,7 @@
     "esModuleInterop": true,         // Ensures compatibility with CommonJS and ES modules
     "moduleResolution": "node",      // Use Node.js module resolution
     "outDir": "dist",                // Compiled JavaScript will go to 'dist'
-    "strict": true,    
-    "type": "module",                 // Enable strict mode for better type safety
+    "strict": true,                // Enable strict mode for better type safety
     "skipLibCheck": true,            // Skip library checks (to avoid unnecessary errors)
     "forceConsistentCasingInFileNames": true
   },
