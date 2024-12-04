@@ -1,3 +1,4 @@
+version: 0.2
 phases:
   install:
     commands:
@@ -5,10 +6,16 @@ phases:
       - npm install
   pre_build:
     commands:
-      - echo "Checking the current working directory..."
+      - echo "Current working directory:"
       - pwd
       - ls -la
   build:
     commands:
-      - echo "Building TypeScript..."
+      - echo "Compiling TypeScript..."
       - npm run build
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+artifacts:
+  files:
+    - dist/**/*
