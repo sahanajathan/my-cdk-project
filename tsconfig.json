@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2020",  // or another appropriate version
+    "target": "ES2020",
     "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": ".",  // Set to the project root to include `bin/`, `lib/`, and `src/`
+    "lib": ["es2020"],
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",  // Ensure this is set to 'dist'
+    "rootDir": "lib"   // Root directory of your source TypeScript code
   },
   "include": [
-    "bin/**/*.ts",  // Include files in bin/ directory
-    "lib/**/*.ts",  // Include files in lib/ directory (if you have them)
-    "src/**/*.ts"   // Include files in src/ directory (if you have them)
+    "lib/**/*.ts",
+    "bin/**/*.ts"   // Make sure this includes the 'bin' folder
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules"
+  ]
 }
