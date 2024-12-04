@@ -15,12 +15,11 @@ phases:
       - echo "Compiling TypeScript files..."
       - npx tsc  # Compile TypeScript to JavaScript (if required)
 
-    build:
+  build:
     commands:
       - echo "Deploying CDK stack"
-      - node --loader ts-node/esm bin/my-cdk-project.ts 
-      - npx cdk deploy MyCdkProjectStack --require-approval never
-
+      - node --loader ts-node/esm bin/my-cdk-project.ts  # Run the CDK app with ts-node
+      - npx cdk deploy MyCdkProjectStack --require-approval never  # Deploy the stack
 
   post_build:
     commands:
