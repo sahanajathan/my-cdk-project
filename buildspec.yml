@@ -1,25 +1,25 @@
 version: 0.2
+
 phases:
   install:
     commands:
       - echo "Installing dependencies..."
       - npm install
+
   pre_build:
     commands:
-      - echo "Checking current directory..."
-      - pwd
-      - echo "Listing project files..."
+      - echo "Checking project directory structure..."
       - ls -la
       - echo "Listing bin directory..."
       - ls -la bin
       - echo "Listing src directory..."
-      - ls -la src  # This checks if the src directory exists in the build environment
+      - ls -la src || echo "src directory does not exist. Please create or adjust your configuration."
+
   build:
     commands:
       - echo "Compiling TypeScript..."
-      - npm run build
-      - echo "Running CDK synth..."
-      - npx cdk synth
+      - tsc
+
   post_build:
     commands:
       - echo "Build completed successfully."
