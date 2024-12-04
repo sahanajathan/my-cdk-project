@@ -3,23 +3,21 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 18  # Ensure Node.js 18.x or later
     commands:
-      # Install AWS CDK
-      - npm install -g aws-cdk@2 # Change to v1 if needed
-      # Install project dependencies
+      - npm install -g aws-cdk@2  # Ensure you're using CDK v2
       - npm install
-      - npm install -g ts-node 
+      - npm install -g typescript  # Install TypeScript compiler globally
 
   pre_build:
     commands:
-      - echo "Preparing to deploy CDK stack"
+      - echo "Compiling TypeScript files..."
+      - tsc  # Compile the TypeScript files to JavaScript
 
   build:
     commands:
       - echo "Deploying CDK stack"
-      - ts-node bin/my-cdk-project.ts
-      - cdk deploy MyCdkProjectStack --require-approval never
+      - node dist/bin/my-cdk-project.js  # Run the compiled JavaScript file from 'dist'
 
   post_build:
     commands:
@@ -27,8 +25,8 @@ phases:
 
 artifacts:
   files:
-    - '**/*' # Include all files in the artifact
+    - '**/*'
   exclude-paths:
-    - 'cdk.out/' # Exclude CDK build artifacts
-    - 'node_modules/' # Exclude node_modules to reduce size
-    - '.git/' # Exclude .git folder
+    - 'cdk.out/'
+    - 'node_modules/'
+    - '.git/'
