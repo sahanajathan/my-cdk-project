@@ -1,5 +1,6 @@
-import * as cdk from 'aws-cdk-lib';
-import { MyCdkProjectStack } from '../lib/my-cdk-project-stack';
+#!/usr/bin/env node
+const { App } = require('aws-cdk-lib');
+const { MyCdkStack } = require('../lib/my-cdk-stack');  // Import your stack
 
-const app = new cdk.App();
-new MyCdkProjectStack(app, 'MyCdkProjectStack');
+const app = new App();
+new MyCdkStack(app, 'MyCdkStack');
