@@ -1,22 +1,31 @@
-version: 0.2
-
-phases:
-  install:
-    commands:
-      - echo "Installing dependencies..."
-      - npm install
-
-  pre_build:
-    commands:
-      - echo "Checking if the 'src' directory exists..."
-      - ls -la src || (echo "src directory does not exist. Creating 'src' directory..."; mkdir src)
-      - echo "Directory check complete."
-
-  build:
-    commands:
-      - echo "Compiling TypeScript..."
-      - tsc
-
-  post_build:
-    commands:
-      - echo "Build completed successfully."
+{
+  "version": "0.2",
+  "phases": {
+    "install": {
+      "runtime-versions": {
+        "nodejs": 14
+      },
+      "commands": [
+        "npm install -g aws-cdk@1",
+        "npm install"
+      ]
+    },
+    "pre_build": {},
+    "build": {
+      "commands": [
+        "cdk deploy *my-cdk-project-stack* --require-approval never"
+      ]
+    },
+    "post_build": {}
+  },
+  "artifacts": {
+    "files": [
+      "**/*"
+    ],
+    "exclude-paths": [
+      "cdk.out/",
+      "node_modules/",
+      ".git/"
+    ]
+  }
+}
