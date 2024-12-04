@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ES2020",
-    "strict": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",  // Ensure modules are resolved like Node.js would
+    "outDir": "dist",
+    "rootDir": "src",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "strict": true
   },
   "include": [
-    "bin/**/*.ts",
-    "lib/**/*.ts"
+    "src/**/*.ts"
   ]
 }
