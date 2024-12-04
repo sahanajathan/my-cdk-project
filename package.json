@@ -1,5 +1,6 @@
 {
   "name": "my-cdk-project",
+  "type": "module",
   "version": "0.1.0",
   "dependencies": {
     "aws-cdk-lib": "^2.0.0",
