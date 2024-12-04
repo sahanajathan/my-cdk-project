@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2020",  // or another appropriate version
     "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",  // Or adjust this if your files are in `bin` or `lib`
+    "strict": true,
+    "esModuleInterop": true
     "moduleResolution": "node",
-    "outDir": "dist",
-    "rootDir": "src",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true
   },
   "include": [
-    "src/**/*.ts"
-  ]
+    "bin/**/*.ts",  // Include files in bin/ directory
+    "lib/**/*.ts",  // Include files in lib/ directory (if you have them)
+    "src/**/*.ts"   // Include files in src/ directory (if you have them)
+  ],
+  "exclude": ["node_modules", "dist"]
 }
