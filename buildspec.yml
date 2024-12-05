@@ -14,7 +14,7 @@ phases:
   build:
     commands:
       - echo Running CDK deploy...
-      - npx cdk deploy aws://843835551300/us-east-1  # Deploy using CDK
+      - npx cdk deploy
 
   post_build:
     commands:
